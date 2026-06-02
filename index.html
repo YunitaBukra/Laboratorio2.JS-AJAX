@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 2. JavaScript y AJAX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Laboratorio 2. Ejercicios JavaScript y AJAX</h1>
+
+    <nav class="main-nav">
+        <button id="navPart1" class="btn-nav active" onclick="cambiarSeccion('part1')">Parte 1. Ejercicios JavaScript</button>
+        <button id="navPart2" class="btn-nav" onclick="cambiarSeccion('part2')">Parte 2. Ejercicios AJAX</button>
+    </nav>
+
+    <section id="secPart1" class="section-panel active">
+        <div class="grid-container">
+            <button class="btn-menu" onclick="abrirModal('modal1')">1. Detector de Palíndromos</button>
+            <button class="btn-menu" onclick="abrirModal('modal2')">2. ¿Cuál número es mayor?</button>
+            <button class="btn-menu" onclick="abrirModal('modal3')">3. Extraer Vocales</button>
+            <button class="btn-menu" onclick="abrirModal('modal4')">4. Contar Vocales</button>
+        </div>
+    </section>
+
+    <section id="secPart2" class="section-panel">
+        <div class="ajax-box">
+            <h3>Configuración de la Solicitud HTTP</h3>
+            <label for="urlInput"><strong>URL a solicitar:</strong></label>
+            <div class="control-panel">
+                <input type="text" id="urlInput" class="input-text" placeholder="Introduce una URL...">
+                <button id="btnMostrar" class="btn-ajax-action">Mostrar Contenidos</button>
+            </div>
+        </div>
+
+        <div class="grid-ajax">
+            <div class="ajax-box">
+                <h3>Estados de la petición</h3>
+                <div id="estadoPeticion"><span class="status-badge">No iniciada</span></div>
+            </div>
+            
+            <div class="ajax-box">
+                <h3>Código de estado</h3>
+                <pre id="codigoEstado">Esperando petición...</pre>
+            </div>
+        </div>
+
+        <div class="ajax-box">
+            <h3>Cabeceras HTTP de la respuesta del servidor</h3>
+            <pre id="cabecerasRespuesta">Esperando petición...</pre>
+        </div>
+
+        <div class="ajax-box">
+            <h3>Zona de Contenidos</h3>
+            <pre id="contenidos" style="max-height: 350px;">Aquí se mostrará la respuesta del servidor...</pre>
+        </div>
+    </section>
+
+    <dialog id="modal1">
+        <div class="modal-content">
+            <h2>1. Detector de Palíndromos</h2>
+            <p>Introduce una palabra o frase para verificar si se lee igual al derecho y al revés.</p>
+            <input type="text" id="input1" class="input-text" placeholder="Ej: Anita lava la tina">
+            <div class="btn-container">
+                <button class="btn-action btn-submit" onclick="ejecutarPalindromo()">Verificar</button>
+                <button class="btn-action btn-close" onclick="cerrarModal('modal1')">Cerrar</button>
+            </div>
+            <div class="resultado" id="res1">El resultado aparecerá aquí...</div>
+        </div>
+    </dialog>
+
+    <dialog id="modal2">
+        <div class="modal-content">
+            <h2>2. ¿Qué número es mayor?</h2>
+            <p>Introduce dos números para compararlos.</p>
+            <input type="number" id="input2-n1" class="input-text" placeholder="Primer número">
+            <input type="number" id="input2-n2" class="input-text" placeholder="Segundo número">
+            <div class="btn-container">
+                <button class="btn-action btn-submit" onclick="ejecutarMayor()">Comparar</button>
+                <button class="btn-action btn-close" onclick="cerrarModal('modal2')">Cerrar</button>
+            </div>
+            <div class="resultado" id="res2">El resultado aparecerá aquí...</div>
+        </div>
+    </dialog>
+
+    <dialog id="modal3">
+        <div class="modal-content">
+            <h2>3. Extraer Vocales</h2>
+            <p>Introduce una frase para descubrir qué vocales contiene.</p>
+            <input type="text" id="input3" class="input-text" placeholder="Escribe aquí tu frase">
+            <div class="btn-container">
+                <button class="btn-action btn-submit" onclick="ejecutarExtraerVocales()">Extraer</button>
+                <button class="btn-action btn-close" onclick="cerrarModal('modal3')">Cerrar</button>
+            </div>
+            <div class="resultado" id="res3">El resultado aparecerá aquí...</div>
+        </div>
+    </dialog>
+
+    <dialog id="modal4">
+        <div class="modal-content">
+            <h2>4. Contar Vocales</h2>
+            <p>Introduce una frase para contar cuántas veces aparece cada vocal.</p>
+            <input type="text" id="input4" class="input-text" placeholder="Escribe aquí tu frase">
+            <div class="btn-container">
+                <button class="btn-action btn-submit" onclick="ejecutarContarVocales()">Contar</button>
+                <button class="btn-action btn-close" onclick="cerrarModal('modal4')">Cerrar</button>
+            </div>
+            <div class="resultado" id="res4">El resultado aparecerá aquí...</div>
+        </div>
+    </dialog>
+    
+    <footer class="main-footer">
+        <img src="logo-UNIR.png" alt="Logo UNIR Colombia" class="logo-footer">
+        <p>Ejercicios JavaScript y AJAX, elaborado por Yen, 2026. UNIR Colombia</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
